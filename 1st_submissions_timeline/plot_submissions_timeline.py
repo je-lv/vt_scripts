@@ -33,9 +33,9 @@ USO: python3 {sys.argv[0]} apikey hash [year|month|day]
 {ENDC}""")
 
 def plot_submissions_timeline(apikey, hashfile, freq):
-    vt3_response = req.get(f'https://www.virustotal.com/api/v3/files/{hashfile}/similar_files?limit=40', headers={'x-apikey': apikey}, verify=True)
+    vt3_response = req.get(f'https://www.virustotal.com/api/v3/files/{hashfile}/similar_files?limit=40', headers={'x-apikey': apikey}, verify=True).json()
     date_format={'year':'%Y-%m-%d', 'month':'%Y-%m', 'day':'%Y-%m-%d'}
-    first_subm_dates = [datetime.utcfromtimestamp(int(f['attributes']['first_submission_date'])).strftime(date_format[freq]) for f in vt3_response.json()['data']]
+    first_subm_dates = [datetime.utcfromtimestamp(int(f['attributes']['first_submission_date'])).strftime(date_format[freq]) for f in vt3_response['data']]
     first_subm_dates.sort()
     sns.set(rc={'figure.figsize':(18,8)})
     sns.set_style('darkgrid')
