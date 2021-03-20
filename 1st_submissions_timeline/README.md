@@ -1,6 +1,6 @@
 Quick script to plot a timeline of First Submissions file dates similar to the hashed file provided as script argument.
 
-Suppose we have a SHA-256 form a malware sample.
+Suppose we have a SHA-256 from a malware sample.
 
 ![hashed malfile example](../imgs/vt_hash_example.png)
 
