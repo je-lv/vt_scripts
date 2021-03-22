@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 import pandas as pd
 import seaborn as sns
@@ -13,7 +15,7 @@ BOLD = '\033[1m'            #bold!
 
 if len(sys.argv[1:]) != 3:
     print(f'\n{BOLD}{ERR}[!] Los tres parametros son necesarios!{ENDC}\n')
-    print(f'{BOLD}{INFO}[*] Ej: python3 {sys.argv[0]} apikey hash [year|month|day] {ENDC}\n')
+    print(f'{BOLD}{INFO}[*] Ej: {sys.argv[0]} apikey hash [year|month|day] {ENDC}\n')
     exit()
 
 apikey = sys.argv[1]
